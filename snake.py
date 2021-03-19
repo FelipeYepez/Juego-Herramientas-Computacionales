@@ -1,9 +1,23 @@
 # Snake, classic arcade game.
-
+import sys
 from turtle import clear, update, ontimer, setup, hideturtle, tracer, listen, \
     done, onkey
 from random import randrange, choice
 from freegames import square, vector
+from threading import Thread
+from playsound import playsound
+
+
+# Función para abrir archivo de música
+def music_func():
+    playsound('TusaDakiti.mp3')
+
+
+# Definir función que llama audio
+music = Thread(target=music_func)
+music.daemon = True
+# Iniciar musica
+music.start()
 
 # Definir posición incial de comida
 food = vector(0, 0)
@@ -47,6 +61,8 @@ def move():
         square(head.x, head.y, 9, 'red')
         # Refrescar pantalla
         update()
+        # Termina juego finalizando Python para que thread de musica pare
+        sys.exit()
         # Termina función y por lo tanto el juego
         return
 
