@@ -59,13 +59,11 @@ def square(x, y):
     path.goto(x, y)
     path.down()
     path.begin_fill()
-
+    # elimina los puntos que pacman come
     for count in range(4):
         path.forward(20)
         path.left(90)
-
-
-path.end_fill()
+    path.end_fill()
 
 
 def offset(point):
@@ -114,7 +112,7 @@ def world():
                 # +10 cuasa que los puntos queden centrados
                 # en cada recuadro
                 path.goto(x + 10, y + 10)
-                path.dot(4, 'white')
+                path.dot(2, 'white')
 
 
 # establecer movimiento de pacman y ghosts
@@ -192,7 +190,7 @@ def move():
     update()
     for point, course in ghosts:
         # distancia entre el radio de pacman y ghost
-        if abs(pacman - point) < 12:
+        if abs(pacman - point) < 20:
             return
     #  velocidad del juego
     ontimer(move, 100)
