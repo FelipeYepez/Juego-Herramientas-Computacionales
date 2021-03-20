@@ -136,6 +136,6 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
-# Llamar a las funciones y empezar juego
+# Llamar a las funciones y empezar el juego
 move()
 done()
